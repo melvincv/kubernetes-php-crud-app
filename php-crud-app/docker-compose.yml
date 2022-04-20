@@ -1,0 +1,50 @@
+version: '3.8'
+
+networks:
+  frontend:
+  backend:
+
+volumes:
+  www-data:
+  db-data:
+
+services:
+  phpcrudapp:
+    image: phpcrudapp
+    build: ./app
+    restart: unless-stopped
+    ports: 
+      - "8080:80"
+    volumes:
+      - www-data:/var/www/html:rw
+    networks:
+      - frontend
+      - backend
+    depends_on:
+      - mysqldb
+  mysqldb:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    volumes:
+      - db-data:/var/lib/mysql:rw
+    networks:
+      - backend
+    environment:
+      MYSQL_ROOT_PASSWORD:
+      MYSQL_DATABASE: crudapi
+      MYSQL_USER: melvincv
+      MYSQL_PASSWORD:
+  adminer:
+    image: adminer:4.8.1
+    restart: always
+    ports:
+      - "127.0.0.1:10000:8080"
+    networks:
+      - backend
+      - frontend
+    environment:
+      - ADMINER_DEFAULT_SERVER=mysqldb
+
+
+  
