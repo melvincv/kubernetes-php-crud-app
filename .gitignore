@@ -1,1 +1,2 @@
 php-crud-app/.env
+kubernetes-manifests/secrets-valid.yml
