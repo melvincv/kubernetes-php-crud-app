@@ -5,6 +5,8 @@
 docker login
 docker tag phpcrudapp:latest melvincv/phpcrudapp:latest
 docker push melvincv/phpcrudapp:latest
+docker tag mysqldb-mcv melvincv/mysqldb-mcv
+docker push melvincv/mysqldb-mcv
 
 ## Create the Namespace, ConfigMap and Secret
 
@@ -30,21 +32,9 @@ k apply -f kubernetes-manifests/mysqldb.yml
 
 k apply -f kubernetes-manifests/app.yml
 
-## Create the DB table
-
-```
-k exec -it mysqldb-d-b9b4bcb67-q89vp -n phpcrudapp -- mysql -u melvincv -pPassword crudapi < dump.sql
-```
-OR
-
-```
-k exec -it mysqldb-d-b9b4bcb67-q89vp -n phpcrudapp -- mysql -u melvincv -p
-```
-and enter the queries manually
-
 ### TODO Note
 
-Important: Learn just enough PHP to remove hardcoded values from the code.
+Done. ~~Important: Learn just enough PHP to remove hardcoded values from the code.~~
 
 1. Volumes
 2. SSL 

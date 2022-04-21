@@ -1,12 +1,7 @@
 <?php
-/* Database credentials. */
-define('DB_SERVER', 'mysqldb');
-define('DB_USERNAME', 'melvincv');
-define('DB_PASSWORD', 'ksefjpjixN@TiZ59');
-define('DB_NAME', 'crudapi');
  
 /* Attempt to connect to MySQL database */
-$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+$link = mysqli_connect(getenv("DB_HOST"), getenv("DB_USER"), getenv("DB_PASS"), getenv("DB_NAME"));
  
 // Check connection
 if($link === false){
