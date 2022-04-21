@@ -18,6 +18,27 @@ spec:
       containers:
       - name: phpcrudapp
         image: melvincv/phpcrudapp:latest
+        env:
+          - name: DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: mysql-dev-params
+                key: mysql-host
+          - name: DB_USER
+            valueFrom:
+              configMapKeyRef:
+                name: mysql-dev-params
+                key: mysql-user
+          - name: DB_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: mysql-dev-params
+                key: mysql-db
+          - name: DB_PASS
+            valueFrom:
+              secretKeyRef:
+                name: mysql-dev-secret
+                key: mysql-pass
         ports:
         - containerPort: 80
 ---
