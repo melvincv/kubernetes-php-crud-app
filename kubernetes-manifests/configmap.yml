@@ -6,3 +6,12 @@ metadata:
 data:
   mysql-user: melvincv
   mysql-db: crudapi
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: phpapp-dev-params
+  namespace: phpcrudapp
+data:
+  mysqldb-user: melvincv
+  mysqldb-name: crudapi
