@@ -23,7 +23,8 @@ services:
     depends_on:
       - mysqldb
   mysqldb:
-    image: mysql:8.0
+    image: mysqldb-mcv
+    build: ./sql
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     volumes:
