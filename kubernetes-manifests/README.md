@@ -44,6 +44,10 @@ and enter the queries manually
 
 ### TODO Note
 
-MySQL DB is a Stateful app and requires a StatefulSet instead of a Deployment.
+Important: Learn just enough PHP to remove hardcoded values from the code.
+
+1. Volumes
+2. SSL 
+3. MySQL DB is a Stateful app and requires a StatefulSet instead of a Deployment.
 This Deployment is for demo purpose only. 
 Normally, we do not run the DB inside the Kubernetes cluster. 
