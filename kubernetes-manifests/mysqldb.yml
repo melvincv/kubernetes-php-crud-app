@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: mysqldb
-        image: mysql:8.0
+        image: melvincv/mysqldb-mcv
         env:
           - name: MYSQL_DATABASE
             valueFrom:
