@@ -14,7 +14,7 @@ services:
     build: ./app
     restart: unless-stopped
     ports: 
-      - "8080:80"
+      - "8100:80"
     volumes:
       - www-data:/var/www/html:rw
     networks:

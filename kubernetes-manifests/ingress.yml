@@ -1,0 +1,19 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: phpcrudapp-ing
+  namespace: phpcrudapp
+spec:
+  rules:
+  - host: myphpapp.melvincv.site
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: phpcrudapp-svc
+            port:
+              number: 8001
+  ingressClassName: nginx

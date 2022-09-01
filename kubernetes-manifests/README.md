@@ -1,5 +1,14 @@
 # Kubernetes Deployment
 
+## Quick deployment
+
+This can be deployed to the 
+
+```
+k create ns phpcrudapp
+k apply -f kubernetes-manifests/release.yml
+```
+
 ## Push the container image to a registry
 
 docker login
